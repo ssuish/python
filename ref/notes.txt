@@ -1,2 +1,0 @@
-- Create virtual env in python
-py -m venv /path/to/new/virtual/environment
