@@ -1,2 +1,3 @@
-# python
-python programs and projects
+# Python
+
+Python programs and projects
