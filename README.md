@@ -1,3 +1,3 @@
 # Python
 
-Python programs and projects
+Python programming and self-made projects
