@@ -17,3 +17,9 @@ students to identify problems in the analysis, visualize higher dimensional data
 - joint plots
 - pair grids
 - heatmaps
+
+## Tools and Prerequisites
+
+- seaborn python library.
+- jupyter notebook.
+- basic knowledge of statistics and EDA.
