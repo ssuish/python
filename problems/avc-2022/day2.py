@@ -10,24 +10,31 @@ def Main():
     # Z = C = Scissors
     score = 0
       
-    with open(path, 'r') as file:
-        for line in file:
-            pick = line.strip()
-            if pick[0] == opponent.get(pick[2]):
+    #with open(path, 'r') as file:
+    file = ['A Y', 'B X', 'C Z']
+    for line in file:
+        pick = line.strip()
+        if pick[0] == opponent.get(pick[2]):
+            if pick[2] == 'X':
+                score += game.get(pick[2]) + 0
+            elif pick[2] == 'Y':
                 score += game.get(pick[2]) + 3
-            else:
-                if pick[0] == 'A' and pick[2] == 'Y':
-                    score += game.get(pick[2]) + 6
-                elif pick[0] == 'A' and pick[2] == 'Z':
-                    score += game.get(pick[2]) + 0
-                elif pick[0] == 'B' and pick[2] == 'X':
-                    score += game.get(pick[2]) + 0
-                elif pick[0] == 'B' and pick[2] == 'Z':
-                    score += game.get(pick[2]) + 6
-                elif pick[0] == 'C' and pick[2] == 'X':
-                    score += game.get(pick[2]) + 6
-                elif pick[0] == 'C' and pick[2] == 'Y':
-                    score += game.get(pick[2]) + 0
+            elif pick[2] == 'Z':
+                score += game.get(pick[2]) + 6
+            #score += game.get(pick[2]) + 3
+        else:
+            if pick[0] == 'A' and pick[2] == 'Y':
+                score += game.get(pick[2]) + 3
+            elif pick[0] == 'A' and pick[2] == 'Z':
+                score += game.get(pick[2]) + 6
+            elif pick[0] == 'B' and pick[2] == 'X':
+                score += game.get(pick[2]) + 0
+            elif pick[0] == 'B' and pick[2] == 'Z':
+                score += game.get(pick[2]) + 6
+            elif pick[0] == 'C' and pick[2] == 'X':
+                score += game.get(pick[2]) + 0
+            elif pick[0] == 'C' and pick[2] == 'Y':
+                score += game.get(pick[2]) + 3
     
     print("Total score: ", score) 
 
