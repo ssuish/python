@@ -24,31 +24,50 @@ def Main():
     }
     
     # Test cases
-    # file = [
-    #    "vJrwpWtwJgWrhcsFMMfFFhFp",
-    #    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-    #    "PmmdzqPrVvPwwTWBwg",
-    #    "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-    #    "ttgJtRGJQctTZtZT",
-    #    "CrZsJsPPZsGzwwsLwLmpwMDw"
-    # ]
+    file = [
+        "vJrwpWtwJgWrhcsFMMfFFhFp",
+        "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+        "PmmdzqPrVvPwwTWBwg",
+        "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+        "ttgJtRGJQctTZtZT",
+        "CrZsJsPPZsGzwwsLwLmpwMDw"
+    ]
     
     priority_sum = 0
     shared_items = []
     
-    with open(path, 'r') as file:
-        for line in file:
-            chars = line.strip()
-            compartmentL, compartmentR = split_items(chars)
-            items = compartmentL & compartmentR
-            shared_items.append(*items) # unpacking the set
-        
-    for i in shared_items:
-        if i in lowercase:
-            priority_sum += lowercase[i]
-        elif i in uppercase:
-            priority_sum += uppercase[i]
+    # Case 1
+    # with open(path, 'r') as file:
+    #   for line in file:
+    #        chars = line.strip()
+    #        compartmentL, compartmentR = split_items(chars)
+    #        items = compartmentL & compartmentR
+    #        shared_items.append(*items) # unpacking the set   
+    # for i in shared_items:
+    #    if i in lowercase:
+    #        priority_sum += lowercase[i]
+    #    elif i in uppercase:
+    #        priority_sum += uppercase[i]
             
+    # Case 2
+    rucksacks = []
+    group = []
+    
+    #with open (path, 'r') as file:
+    
+    for line in file:
+        # Group every 3 lines into one set
+        line = line.strip()
+        group.append(set(line))
+        
+    i = 0
+    while i < len(group):
+        rucksacks.append(group[i] & group[i+1] & group[i+2])
+        i += 3
+        
+    print(rucksacks)
+            
+        
     print("Priority sum: ", priority_sum)
         
 
