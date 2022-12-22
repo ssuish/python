@@ -30,7 +30,7 @@ def Main():
             score = 6 + 1
         else if = A and you = Z
             Z is lose, so you = A
-            score = 0 + 3
+            score = 0 + 3  
     """
     
     score = 0
