@@ -24,14 +24,14 @@ def Main():
     }
     
     # Test cases
-    file = [
-        "vJrwpWtwJgWrhcsFMMfFFhFp",
-        "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
-        "PmmdzqPrVvPwwTWBwg",
-        "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
-        "ttgJtRGJQctTZtZT",
-        "CrZsJsPPZsGzwwsLwLmpwMDw"
-    ]
+    #file = [
+    #    "vJrwpWtwJgWrhcsFMMfFFhFp",
+    #    "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+    #    "PmmdzqPrVvPwwTWBwg",
+    #    "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+    #    "ttgJtRGJQctTZtZT",
+    #    "CrZsJsPPZsGzwwsLwLmpwMDw"
+    #]
     
     priority_sum = 0
     shared_items = []
@@ -53,20 +53,23 @@ def Main():
     rucksacks = []
     group = []
     
-    #with open (path, 'r') as file:
-    
-    for line in file:
-        # Group every 3 lines into one set
-        line = line.strip()
-        group.append(set(line))
+    with open (path, 'r') as file:
+        for line in file:
+            # Group every 3 lines into one set
+            line = line.strip()
+            group.append(set(line))
         
     i = 0
     while i < len(group):
-        rucksacks.append(group[i] & group[i+1] & group[i+2])
+        rucksacks.append(group[i] & group[i+1] & group[i+2]) # intersection of 3 sets
         i += 3
         
-    print(rucksacks)
-            
+    for rucksack in rucksacks:
+        for item in rucksack:
+            if item in lowercase:
+                priority_sum += lowercase[item]
+            elif item in uppercase:
+                priority_sum += uppercase[item]
         
     print("Priority sum: ", priority_sum)
         
