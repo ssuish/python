@@ -16,6 +16,7 @@ def main():
             pair1.append(p1)
             pair2.append(p2)
     
+    # Case 1
     for i in range(len(pair1)):
         s1 = set(range(pair1[i][0], pair1[i][1] + 2))
         s2 = set(range(pair2[i][0], pair2[i][1] + 2))
@@ -23,7 +24,14 @@ def main():
         if s1.issubset(s2) or s2.issubset(s1):  
             count_pairs += 1
     
-    print(count_pairs)
+    # Case 2
+    for i in range(len(pair1)):
+        if ((pair1[i][0] <= pair2[i][1] and pair1[i][1] >= pair2[i][0]) or 
+            (pair2[i][0] <= pair1[i][1] and pair2[i][1] >= pair1[i][0])):
+            count_overlaps += 1 
+    
+    print("Pairs that fully contain each other: ", count_pairs)
+    print("Pairs that overlaps: ", count_overlaps) 
 
 if __name__ == '__main__':
     main()
