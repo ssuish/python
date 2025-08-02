@@ -19,11 +19,14 @@ def verbing(s):
   # +++your code here+++
   if (len(s) < 3):
     return s
-  
   if (s[-3:] == "ing"):
     return s + "ly"
-  
   return s + "ing"
+  # +++optimal solution+++
+  # if len(s) >= 3:
+  #   if s[-3:] != 'ing': s = s + 'ing'
+  #   else: s = s + 'ly'
+  # return s
 
 
 # E. not_bad
@@ -49,6 +52,13 @@ def not_bad(s):
   
   return s
 
+  # +++optimal solution+++
+  # n = s.find('not')
+  # b = s.find('bad')
+  # if n != -1 and b != -1 and b > n:
+  #   s = s[:n] + 'good' + s[b+3:]
+  # return s
+
 # F. front_back
 # Consider dividing a string into two halves.
 # If the length is even, the front and back halves are the same length.
@@ -67,7 +77,7 @@ def front_back(a, b):
   else:
     a_front = a[:int(-len(a)/2)]
     a_back =  a[int(-len(a)/2):]
-      
+
   if (len(b) % 2 == 0):
     b_front = b[:int(len(b)/2)]
     b_back = b[int(len(b)/2):]
@@ -76,6 +86,15 @@ def front_back(a, b):
     b_back =  b[int(-len(b)/2):]
   
   return a_front + b_front + a_back + b_back
+
+  # +++optimal solution+++
+  # a_middle = len(a) // 2  # Use the // operator to perform integer division.
+  # b_middle = len(b) // 2
+  # if len(a) % 2 == 1:  # add 1 if length is odd
+  #   a_middle = a_middle + 1
+  # if len(b) % 2 == 1:
+  #   b_middle = b_middle + 1
+  # return a[:a_middle] + b[:b_middle] + a[a_middle:] + b[b_middle:]
 
 
 # Simple provided test() function used in main() to print
