@@ -23,7 +23,7 @@
 # instead of the actual count.
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
-def donuts(count):
+def donuts(count): # OK
   # +++your code here+++
   if (count >= 10):
     return "Number of donuts: many"
@@ -36,7 +36,7 @@ def donuts(count):
 # and the last 2 chars of the original string,
 # so 'spring' yields 'spng'. However, if the string length
 # is less than 2, return instead the empty string.
-def both_ends(s):
+def both_ends(s): # OK
   # +++your code here+++
   if (len(s) > 2):
     return s[:2] + s[-2:] 
@@ -52,7 +52,7 @@ def both_ends(s):
 # Assume that the string is length 1 or more.
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
-def fix_start(s):
+def fix_start(s): # OK
   # +++your code here+++
   new_str = s[1:]
   return s[0] + new_str.replace(s[0], "*")
@@ -65,12 +65,15 @@ def fix_start(s):
 #   'mix', pod' -> 'pox mid'
 #   'dog', 'dinner' -> 'dig donner'
 # Assume a and b are length 2 or more.
-def mix_up(a, b):
+def mix_up(a, b): 
   # +++your code here+++
   firstA = a[:2]
   firstB = b[:2]
-  
   return a.replace(a[:2], firstB) + " " + b.replace(b[:2], firstA)
+  # +++optimal solution+++
+  # a_swapped = b[:2] + a[2:]
+  # b_swapped = a[:2] + b[2:]
+  # return a_swapped + ' ' + b_swapped
 
 
 # Provided simple test() function used in main() to print
