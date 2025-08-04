@@ -46,6 +46,33 @@ import sys
 # Then print_words() and print_top() can just call the utility function.
 
 ###
+def read_file(filename):
+  lines = []
+  
+  with open(filename, "r", encoding="utf-8") as f:
+    for line in f:
+      lines.append(line.rstrip('\n'))
+      
+  return lines
+
+def print_words(filename):
+  lines = read_file(filename)
+  count = {}
+  
+  for i in lines:
+    words = str(i).split(" ")
+    for word in words:
+      word = word.lower()
+      if word in count.keys():
+        count[word] += 1
+      else:
+        count[word] = 1
+      
+  for k, v in count.items():
+    print(k, v)
+
+def print_top(filename):
+  pass
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
